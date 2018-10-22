@@ -1601,5 +1601,16 @@
       <field type="uint16_t[4]" name="rpm" units="rpm">RPM (eRPM)</field>
       <field type="uint16_t[4]" name="count">count of telemetry packets received (wraps at 65535)</field>
     </message>
+    <message id="11150" name="LANDING_TARGET_STATUS">
+        <description>The location of a landing status </description>
+        <field type="uint64_t" name="time_usec" units="us">Timestamp (micros since boot or Unix epoch)</field>
+        <field type="uint8_t" name="target_num">The ID of the target if multiple targets are present</field>
+        <field type="uint8_t" name="frame" enum="MAV_FRAME">MAV_FRAME enum specifying the whether the following feilds are earth-frame, body-frame, etc.</field>
+        <field type="float" name="offset_x" units="m">X-axis offset of the target from the center of vehicle</field>
+        <field type="float" name="offset_y" units="m">Y-axis offset of the target from the center of vehicle</field>
+        <field type="float" name="distance" units="m">Distance to the target from the center of vehicle</field>
+        <field type="uint8_t" name="type" enum="LANDING_TARGET_TYPE">LANDING_TARGET_TYPE enum specifying the type of landing target</field>
+        <field type="uint8_t" name="trust_level">Trust level of position (100 max) or default unkown position (0), for validation of positioning of the landing target</field>
+    </message>
   </messages>
 </mavlink>
